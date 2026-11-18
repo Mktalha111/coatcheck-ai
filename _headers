@@ -1,0 +1,28 @@
+# Cloudflare Pages reads this file and sends these security headers with every page.
+
+/*
+  Content-Security-Policy: default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; manifest-src 'self'; worker-src 'self'; connect-src 'self'; frame-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'self'
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: no-referrer
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), bluetooth=(), serial=(), hid=(), browsing-topics=()
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: same-origin
+  Strict-Transport-Security: max-age=63072000; includeSubDomains
+  ! Access-Control-Allow-Origin
+
+# Never cache the service worker, so updates reach people right away
+/sw.js
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/screenshots/*
+  Cache-Control: public, max-age=604800
+
+/assets/icon-*
+  Cache-Control: public, max-age=604800
+
+/assets/og-image.png
+  Cache-Control: public, max-age=604800

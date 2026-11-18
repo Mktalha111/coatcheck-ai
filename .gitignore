@@ -1,0 +1,13 @@
+# private / local only
+_backup/
+.claude/
+.wrangler/
+.env
+.env.*
+
+# system junk
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+node_modules/

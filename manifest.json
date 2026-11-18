@@ -1,0 +1,28 @@
+{
+  "id": "./",
+  "name": "CoatCheck AI",
+  "short_name": "CoatCheck",
+  "description": "Hide secrets and personal data before you paste into an AI chat, then put them back in the reply. Works worldwide and offline; nothing leaves your browser.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#ebe3d2",
+  "theme_color": "#ebe3d2",
+  "lang": "en",
+  "categories": ["productivity", "developer", "security", "utilities"],
+  "icons": [
+    { "src": "./assets/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "./assets/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "screenshots": [
+    { "src": "./assets/screenshots/wide-sanitize.png", "sizes": "1280x800", "type": "image/png", "form_factor": "wide", "label": "Secrets and phone numbers replaced by placeholders" },
+    { "src": "./assets/screenshots/wide-scan.png", "sizes": "1280x800", "type": "image/png", "form_factor": "wide", "label": "Scan exposes hidden characters and prompt injection" },
+    { "src": "./assets/screenshots/narrow-sanitize.png", "sizes": "780x1688", "type": "image/png", "form_factor": "narrow", "label": "Works on phones too" }
+  ],
+  "shortcuts": [
+    { "name": "Restore a reply", "url": "./#restore" },
+    { "name": "Scan untrusted text", "url": "./#scan" }
+  ]
+}
