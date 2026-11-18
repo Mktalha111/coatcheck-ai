@@ -22,7 +22,7 @@ Everything runs in your browser. Nothing you paste is uploaded: a Content-Securi
 - Private key blocks, JWTs, connection strings (`postgres://`, `mongodb+srv://`, `user:pass@` links, Azure `AccountKey=`)
 - Passwords and secret settings: `password=…`, `"api_key": "…"`, `.env` and YAML lines
 - Random-looking strings (catches key formats nobody has listed yet)
-- **Phone numbers from any country.** Numbers with `+`, `00` or `011` are checked against every ITU country calling code (230+) and the right length for that country. Local formats are recognised too (`020 7946 0958`, `(11) 91234-5678`, `03-1234-5678`, `98765 43210`, `138 0013 8000`, …), as are numbers after a label in many languages (`Tel:`, `WhatsApp`, `Teléfono`, `电话`, `هاتف`, `फ़ोन`, `тел.`, …). Dates, years, prices, versions, ISBNs and IP addresses are left alone.
+- **Phone numbers from any country.** Numbers with `+`, `00` or `011` are checked against 215 country calling codes and the right length for that country. Local formats are recognised too (`020 7946 0958`, `(11) 91234-5678`, `03-1234-5678`, `98765 43210`, `138 0013 8000`, …), as are numbers after a label in many languages (`Tel:`, `WhatsApp`, `Teléfono`, `电话`, `هاتف`, `फ़ोन`, `тел.`, …). Dates, years, prices, versions, ISBNs and IP addresses are left alone.
 - **ID, tax and bank numbers**, using the official check digit wherever the country has one: China resident ID, Brazil CPF and CNPJ, Spain DNI/NIE, Italy codice fiscale, France social security number, UK National Insurance number, India PAN and Aadhaar (Verhoeff), Mexico CURP and RFC, UAE Emirates ID, Singapore NRIC/FIN, Korea resident number, Sweden, Finland, Denmark and Belgium personal numbers, Russia SNILS, Poland PESEL, Turkey TC Kimlik, Egypt and South Africa IDs, Canada SIN, US SSN and ITIN, Pakistan CNIC, and IBAN for every country. Any value written after a label such as "passport no.", "ID number", "account number", "رقم الهوية", "身份证号码" or "पासपोर्ट नंबर" is hidden too.
 - **Card numbers**: Visa, Mastercard, Amex, UnionPay, JCB, RuPay, Mir, Troy and more, checked with the Luhn sum.
 - **Emails in any alphabet** (`müller@münchen.de`, `пользователь@пример.рф`), even when written right next to Chinese, Japanese or Thai text.
@@ -45,7 +45,7 @@ The key map links each placeholder to its real value. It lives in the tab's memo
 
 ## Run it
 
-Double-click `index.html`. That's it.
+Double-click `index.html` for the homepage, or `app.html` for the app. That's it.
 
 To install it as an app and use it offline, serve the folder over http (the service worker only runs on http/https):
 
@@ -74,7 +74,8 @@ If the host ever has trouble, returning visitors still get their saved copy of t
 
 ```
 coatcheck-ai/
-├── index.html        the whole app (HTML, CSS and JS in one file)
+├── index.html        the homepage
+├── app.html          the whole app (HTML, CSS and JS in one file)
 ├── testing.html      test kit (self-check + manual checklist)
 ├── privacy.html      privacy policy
 ├── terms.html        terms of use
@@ -96,7 +97,7 @@ coatcheck-ai/
 - Token counts are estimates (about ±15%). Real tokenizers differ by model.
 - Prices are input-token list prices for Claude models as of Nov 2026. Choose "Edit custom model" in any price menu to add any other model and price.
 - Fonts are self-hosted. The site makes no request to any other server.
-- Add `?demo` to a link (for example `/?demo#scan`) to open a tool with its demo already loaded. Handy for launch posts.
+- Add `?demo` to a link (for example `/app?demo#scan`) to open a tool with its demo already loaded. Handy for launch posts.
 - No detector is perfect. Glance over the highlights before you send.
 
 ## License

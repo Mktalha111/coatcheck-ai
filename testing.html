@@ -73,7 +73,7 @@ code,kbd{font:.85em var(--mono);background:var(--sheet-2);border:1px solid var(-
       <p class="lede">Open CoatCheck AI in a second tab. Go down this page in order: copy a sample, paste it into the app, compare with "You should see", then press <b>Works</b> or <b>Problem</b>. At the end, press <b>Copy my results</b> and send them to Claude.</p>
     </div>
     <div>
-      <a class="btn primary" href="index.html" target="_blank" rel="noopener">Open CoatCheck AI ↗</a>
+      <a class="btn primary" href="app.html" target="_blank" rel="noopener">Open CoatCheck AI ↗</a>
       <div class="progress" id="prog" style="margin-top:10px">0 of 0 checked</div>
       <div class="meter"><i id="progBar"></i></div>
     </div>
@@ -360,7 +360,7 @@ $('#runAuto').addEventListener('click', () => {
     setTimeout(() => {
       let P;
       try { P = frame.contentWindow.CoatCheck; } catch {}
-      if (!P) { out.innerHTML = '<div class="note">Could not reach the app. Make sure index.html is in the same folder.</div>'; btn.disabled = false; btn.textContent = 'Run the self-check'; return; }
+      if (!P) { out.innerHTML = '<div class="note">Could not reach the app. Make sure app.html is in the same folder.</div>'; btn.disabled = false; btn.textContent = 'Run the self-check'; return; }
       const t0 = performance.now();
       const { groups, fails } = runSuite(P);
       const ms = Math.round(performance.now() - t0);
@@ -373,7 +373,7 @@ $('#runAuto').addEventListener('click', () => {
       btn.disabled = false; btn.textContent = 'Run it again';
     }, 300);
   };
-  frame.src = 'index.html?selfcheck=' + Date.now();
+  frame.src = 'app.html?selfcheck=' + Date.now();
 });
 
 render();

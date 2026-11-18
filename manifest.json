@@ -3,7 +3,7 @@
   "name": "CoatCheck AI",
   "short_name": "CoatCheck",
   "description": "Hide secrets and personal data before you paste into an AI chat, then put them back in the reply. Works worldwide and offline; nothing leaves your browser.",
-  "start_url": "./",
+  "start_url": "./app",
   "scope": "./",
   "display": "standalone",
   "orientation": "any",
@@ -22,7 +22,7 @@
     { "src": "./assets/screenshots/narrow-sanitize.png", "sizes": "780x1688", "type": "image/png", "form_factor": "narrow", "label": "Works on phones too" }
   ],
   "shortcuts": [
-    { "name": "Restore a reply", "url": "./#restore" },
-    { "name": "Scan untrusted text", "url": "./#scan" }
+    { "name": "Restore a reply", "url": "./app#restore" },
+    { "name": "Scan untrusted text", "url": "./app#scan" }
   ]
 }

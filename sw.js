@@ -3,11 +3,12 @@
      offline, the host answers with an error, or the host takes too long
    - everything else (fonts, icons): saved copy first
    Only same-origin requests are handled: the app never talks to another server. */
-const CACHE = 'cc-v5';
+const CACHE = 'cc-v6';
 const HOME = new URL('./', self.location).href;
+const APP = new URL('./app', self.location).href;
 const PATIENCE_MS = 4000;                // a hanging host must not leave a returning visitor on a blank page
 const CORE = [
-  './', './assets/fonts/fonts.css',
+  './', './app', './assets/fonts/fonts.css',
   './assets/fonts/fraunces-latin.woff2', './assets/fonts/instrument-sans-latin.woff2',
   './assets/fonts/jetbrains-mono-latin.woff2', './assets/fonts/caveat-latin.woff2',
   './assets/icon-192.png'
@@ -20,7 +21,7 @@ self.addEventListener('install', e => {
   e.waitUntil(
     caches.open(CACHE)
       .then(c => Promise.all(CORE.map(u =>
-        fetch(u, { cache: u === './' ? 'no-cache' : 'default' })
+        fetch(u, { cache: u === './' || u === './app' ? 'no-cache' : 'default' })
           .then(res => saveable(res) ? c.put(u, res) : undefined)
           .catch(() => {})                // one missing file must not break the install
       )))
@@ -38,8 +39,9 @@ self.addEventListener('activate', e => {
 
 async function loadPage(e, url) {
   const cache = await caches.open(CACHE);
-  const key = url.origin + url.pathname;  // "?demo" and similar share one saved copy
-  const saved = (await cache.match(key)) || (await cache.match(HOME));
+  // "?demo" shares one saved copy, and /app.html and /app are the same page
+  const key = url.origin + url.pathname.replace(/\/index\.html$/, '/').replace(/\.html$/, '');
+  const saved = (await cache.match(key)) || (await cache.match(APP)) || (await cache.match(HOME));
   let saving = Promise.resolve();
   const network = fetch(e.request).then(res => {
     if (saveable(res)) saving = cache.put(key, res.clone());
