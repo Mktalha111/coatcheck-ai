@@ -1,5 +1,7 @@
 # CoatCheck AI 2.1
 
+**Live: [coatcheck-ai.pages.dev](https://coatcheck-ai.pages.dev/)**
+
 Keep secrets out of AI chats. Scrub API keys, passwords and personal data from a prompt before you paste it into ChatGPT, Claude or Gemini, then put the real values back into the reply.
 
 Everything runs in your browser. Nothing you paste is uploaded: a Content-Security-Policy blocks the app from making any network request.
@@ -67,9 +69,6 @@ The site is plain static files: there is no build step. Static requests on Cloud
 `_headers` sets the security headers: a strict Content-Security-Policy, no framing by other sites, no MIME sniffing, no referrer, all device permissions off, HTTPS only, and no caching of `sw.js` so updates reach people right away. Cloudflare serves clean addresses such as `/privacy` by itself.
 
 If the host ever has trouble, returning visitors still get their saved copy of the app.
-
-### Before you launch
-- Once you know the address (for example `https://your-domain`), add `og:url`, `og:image` (`/assets/og-image.png`) and a `sitemap.xml` with full URLs. Share previews need full addresses.
 
 ## Files
 
