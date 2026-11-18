@@ -3,7 +3,7 @@
      offline, the host answers with an error, or the host takes too long
    - everything else (fonts, icons): saved copy first
    Only same-origin requests are handled: the app never talks to another server. */
-const CACHE = 'cc-v6';
+const CACHE = 'cc-v7';
 const HOME = new URL('./', self.location).href;
 const APP = new URL('./app', self.location).href;
 const PATIENCE_MS = 4000;                // a hanging host must not leave a returning visitor on a blank page
